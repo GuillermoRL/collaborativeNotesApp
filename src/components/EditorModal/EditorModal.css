@@ -1,0 +1,341 @@
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+  padding: 2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 2px solid #e0e0e0;
+  background-color: #f8f9fa;
+}
+
+.modal-title-input {
+  flex: 1;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem;
+  outline: none;
+  background: transparent;
+  color: #333;
+}
+
+.modal-title-input:focus {
+  background: white;
+  border-radius: 4px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Save Button */
+.save-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.save-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+.save-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.save-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 123, 255, 0);
+  }
+}
+
+/* Simulate Button */
+.simulate-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.simulate-btn:hover {
+  background-color: #218838;
+}
+
+.simulate-btn.active {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.simulate-btn.active:hover {
+  background-color: #e0a800;
+}
+
+/* Close Button */
+.close-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 40px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background-color: #c82333;
+}
+
+/* Notification */
+.modal-notification {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #c3e6cb;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Editor Content */
+.modal-editor-content {
+  flex: 1;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.version-info {
+  font-weight: 600;
+  color: #4a90e2;
+}
+
+.last-edited {
+  color: #999;
+}
+
+.edited-by {
+  color: #4a90e2;
+  font-style: italic;
+}
+
+/* Conflict Dialog (nested inside modal) */
+.conflict-dialog-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  animation: fadeIn 0.3s ease;
+  border-radius: 12px;
+}
+
+.conflict-dialog {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: conflictSlideUp 0.3s ease;
+}
+
+@keyframes conflictSlideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.conflict-dialog h2 {
+  margin: 0 0 1rem 0;
+  color: #dc3545;
+  font-size: 1.5rem;
+}
+
+.conflict-dialog p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.conflict-timestamp {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.conflict-preview {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid #ffc107;
+}
+
+.conflict-preview h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.preview-content {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.conflict-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.conflict-actions button {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-discard {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-discard:hover {
+  background-color: #c82333;
+}
+
+.btn-merge {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-merge:hover {
+  background-color: #218838;
+}
